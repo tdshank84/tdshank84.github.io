@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Harper's STEM" />
   <meta name="theme-color" content="#f63497" />
@@ -14,12 +15,11 @@
 </head>
 <body>
   <div id="splash" class="splash" aria-label="Loading screen">
-    <div class="splash-card">
-      <div class="splash-crown">👑</div>
-      <h1>Harper's STEM Learning</h1>
-      <p>Built by Dad for his little princess</p>
-      <span>v0.9.2</span>
-    </div>
+    <section class="image-stage splash-stage">
+      <img src="assets/splash.png" alt="Harper's STEM Learning princess splash screen" draggable="false" />
+      <div class="dad-badge">Built by Dad for his little princess</div>
+      <div class="version-badge">v0.9.4</div>
+    </section>
   </div>
 
   <div id="portraitLock" class="portrait-lock">
@@ -31,8 +31,8 @@
   </div>
 
   <main class="app-shell" id="appShell">
-    <section class="game-stage" id="gameStage" aria-label="Harper's STEM Learning game dashboard">
-      <img class="dashboard-bg" src="assets/dashboard.png" alt="Princess castle STEM dashboard" draggable="false" />
+    <section class="image-stage game-stage" aria-label="Harper's STEM Learning game dashboard">
+      <img src="assets/dashboard.png" alt="Princess castle STEM dashboard" draggable="false" />
 
       <button class="hotspot menu" data-nav="menu" aria-label="Menu"></button>
       <button class="hotspot card math" data-subject="Math" aria-label="Play Math"></button>
@@ -53,7 +53,7 @@
 
       <div class="live-stars" id="starCount" aria-live="polite">248</div>
       <div class="live-goal" id="goalCount">8 / 20</div>
-      <div class="live-version">v0.9.2</div>
+      <div class="live-version">v0.9.4</div>
     </section>
   </main>
 

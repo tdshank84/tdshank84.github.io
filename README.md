@@ -1,15 +1,17 @@
-# Harper's STEM Learning
+# Harper's STEM Learning v0.9.4
 
-GitHub Pages web app package.
+GitHub Pages-ready web app.
 
-## Upload
-1. Unzip this folder.
-2. Upload all files to a public GitHub repo.
-3. Enable Settings > Pages > Deploy from branch > main > root.
-4. Open the GitHub Pages URL on iPad in Safari.
-5. Share > Add to Home Screen.
+## Files
+- `index.html` - game page
+- `assets/dashboard.png` - exact generated dashboard graphic used in-game
+- `assets/splash.png` - exact generated splash graphic
+- `styles.css` - scaling, landscape layout, touch hotspots
+- `script.js` - game logic and saved stars
+- `manifest.webmanifest` - Home Screen web app setup
+- `service-worker.js` - offline cache
 
-## Notes
-- Designed for iPad landscape.
-- Star count is saved with browser localStorage on each device.
-- Version: v0.9.2
+## iPad install
+Open the GitHub Pages URL in Safari, then tap Share > Add to Home Screen.
+
+Stars are saved on each device using browser localStorage.
