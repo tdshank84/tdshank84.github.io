@@ -1,4 +1,4 @@
-const VERSION = '0.9.6';
+const VERSION = '0.9.7';
 const STAR_KEY = 'harpersStemStars';
 const GOAL_KEY = 'harpersStemGoalStars';
 const SUBJECT_KEY = 'harpersStemSubjectStars';
@@ -226,7 +226,13 @@ document.querySelectorAll('[data-nav]').forEach(el => {
 
 window.addEventListener('load', () => {
   renderStars();
-  setTimeout(() => document.getElementById('splash').classList.add('hidden'), 3000);
+  const splash = document.getElementById('splash');
+  const startButton = document.getElementById('startAdventure');
+  if (startButton && splash) {
+    startButton.addEventListener('click', () => {
+      splash.classList.add('hidden');
+    }, { once: true });
+  }
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./service-worker.js').catch(() => {});
   }

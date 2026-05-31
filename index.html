@@ -14,11 +14,16 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="splash" class="splash" aria-label="Loading screen">
-    <section class="image-stage splash-stage">
-      <img src="assets/splash.png" alt="Harper's STEM Learning princess splash screen" draggable="false" />
-      <div class="dad-badge">Built by Dad for his little princess</div>
-      <div class="version-badge">v0.9.6</div>
+  <div id="splash" class="splash" aria-label="Start screen">
+    <section class="image-stage splash-stage clean-splash">
+      <img src="assets/splash.png" alt="Princess STEM splash artwork" draggable="false" />
+      <div class="splash-soft-mask" aria-hidden="true"></div>
+      <div class="splash-card" role="group" aria-label="Start Harper's STEM Learning">
+        <div class="splash-logo">Harper's<br><span>STEM Learning</span></div>
+        <div class="dad-badge">Built by Dad for his little princess</div>
+        <button id="startAdventure" class="start-adventure" type="button">Start Adventure</button>
+        <div class="version-badge">v0.9.7</div>
+      </div>
     </section>
   </div>
 
@@ -58,7 +63,7 @@
       <div class="subject-stars science-stars" id="scienceStars">38 / 100</div>
       <div class="subject-stars coding-stars" id="codingStars">52 / 100</div>
       <div class="subject-stars speech-stars" id="speechStars">35 / 100</div>
-      <div class="live-version">v0.9.6</div>
+      <div class="live-version">v0.9.7</div>
     </section>
   </main>
 
