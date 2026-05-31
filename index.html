@@ -1,64 +1,87 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Harper STEM">
-<meta name="theme-color" content="#ff7ab8">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="apple-touch-icon" href="icons/icon-180.png">
-<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
-<title>Harper's STEM Learning</title>
-<style>
-:root{--pink:#ff7ab8;--pink2:#ffd7e9;--hot:#d82e82;--ink:#392234;--soft:#fff6fb;--green:#3ca35c;--red:#ce3434}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;touch-action:manipulation}html,body{margin:0;min-height:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink);background:linear-gradient(#fff,#fff0f7)}button{font:inherit}.app{max-width:1100px;margin:0 auto;padding:16px;padding-bottom:40px}.hero{display:flex;justify-content:space-between;gap:14px;align-items:center;background:#fff;border:4px solid var(--pink2);border-radius:28px;padding:18px;box-shadow:0 10px 26px #ff7ab830}.eyebrow{margin:0 0 6px;color:var(--hot);font-weight:900}h1{font-size:clamp(2rem,7vw,4.5rem);line-height:1;margin:0;color:var(--hot)}.spoken{font-size:1.25rem;line-height:1.5;margin:12px 0 0;min-height:2.2em}.spoken b{background:#ffe4f1;color:var(--hot);border-radius:10px;padding:1px 7px;font-size:1.18em}.pill,.back,.answer,.code,.run,.clear{border:0;border-radius:999px;padding:13px 18px;font-weight:900;background:var(--pink);color:#fff;box-shadow:0 6px 0 #bf2b72}.pill:active,.back:active,.answer:active,.code:active,.run:active,.clear:active{transform:translateY(4px);box-shadow:0 2px 0 #bf2b72}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-top:18px}.card{background:#fff;border:4px solid var(--pink2);border-radius:28px;padding:22px;min-height:165px;box-shadow:0 9px 20px #ff7ab825;cursor:pointer}.card:active{transform:scale(.99)}.icon{font-size:3.2rem}.card h2{font-size:1.9rem;margin:8px 0}.card p{font-size:1.12rem;margin:0}.panel{margin-top:18px;background:#fff;border:4px solid var(--pink2);border-radius:28px;padding:18px}.hidden{display:none!important}.top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.top h2{margin:0;font-size:2.1rem;color:var(--hot)}.question{font-size:clamp(1.6rem,5vw,2.4rem);font-weight:900;margin:20px 0}.answers{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}.answer{font-size:1.45rem;background:#fff;color:var(--hot);border:3px solid var(--pink);box-shadow:0 6px 0 var(--pink2)}.answer.correct{background:#eafff1;color:var(--green)}.answer.wrong{background:#fff0f0;color:var(--red)}.tip{position:fixed;z-index:20;background:#fff;color:var(--hot);font-weight:900;border:3px solid var(--pink);border-radius:16px;padding:10px 14px;box-shadow:0 8px 20px #0003;font-size:1.2rem;pointer-events:none}.science{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}.science-card{border:3px solid var(--pink2);border-radius:22px;background:var(--soft);padding:14px;text-align:center;font-weight:900;font-size:1.3rem}.science-card:active{transform:scale(.98)}.pic{font-size:4.5rem;margin-bottom:8px}.code-area{display:grid;grid-template-columns:1fr 1fr;gap:16px}.map{position:relative;min-height:360px;border:4px solid #9fd48b;border-radius:24px;background:linear-gradient(45deg,#dcffcd,#baf2a0);overflow:hidden}.lake,.castle,.princess,.rock,.tree{position:absolute;font-size:3.2rem}.lake{left:16px;bottom:16px}.castle{right:20px;top:16px}.princess{left:36px;bottom:70px;transition:.35s}.rock{left:45%;top:42%}.tree{left:25%;top:23%}.blocks{background:var(--soft);border-radius:24px;padding:14px}.queue{min-height:70px;background:#fff;border:3px dashed var(--pink2);border-radius:18px;padding:10px;margin:12px 0;font-weight:900}.word{display:inline-block;border-bottom:2px dotted var(--pink);cursor:pointer}.notice{margin-top:12px;padding:12px;border-radius:18px;background:#fff6d7;font-weight:800}@media(max-width:800px){.hero{display:block}.hero button{margin-top:12px}.code-area{grid-template-columns:1fr}.map{min-height:300px}}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ff4fa3" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Harper STEM" />
+  <title>Harper's STEM Learning</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<main class="app">
-<section class="hero">
-<div><p class="eyebrow">1st Grade STEM Game</p><h1>Harper's STEM Learning</h1><p id="spoken" class="spoken">Tap Start, then choose a subject.</p></div>
-<button id="voice" class="pill">Start Voice</button>
-</section>
-<div id="icloudNotice" class="notice hidden">Install from Safari: Share → Add to Home Screen.</div>
-<section id="subjects" class="grid"></section>
-<section id="panel" class="panel hidden"><div class="top"><button id="back" class="back">← Subjects</button><h2 id="title"></h2></div><div id="content"></div></section>
-</main><div id="tip" class="tip hidden"></div>
-<script>
-(function(){
-'use strict';
-var subjects=[{id:'math',icon:'➕',title:'Math',desc:'Add, count, and compare.',ph:'MATH'},{id:'science',icon:'🔬',title:'Science',desc:'See, tap, and learn.',ph:'SCI-EN-CE'},{id:'reading',icon:'📖',title:'Reading',desc:'Practice easy words.',ph:'READ-ING'},{id:'coding',icon:'👸',title:'Coding',desc:'Move the princess to the castle.',ph:'CODE-ING'}];
-var ph={science:'SCI-EN-CE',question:'QUES-TION',answer:'AN-SWER',castle:'CAS-TLE',princess:'PRIN-CESS',coding:'CODE-ING',reading:'READ-ING',reaching:'RE-CH-ING',flower:'FLOW-ER',number:'NUM-BER',circle:'CIR-CLE',compare:'COM-PARE',practice:'PRAC-TICE'};
-var voiceReady=false, voiceOn=true, queue=[], princess={x:36,y:70};
-function $(id){return document.getElementById(id)}
-function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-function wrap(text){return String(text).split(/(\s+)/).map(function(w){var clean=w.replace(/[^a-z]/ig,'').toLowerCase();return clean?'<span class="word" data-word="'+clean+'">'+esc(w)+'</span>':esc(w)}).join('')}
-function say(text){var words=String(text).split(/\s+/),i=0; if(window.speechSynthesis) window.speechSynthesis.cancel(); function step(){if(i>=words.length)return; $('spoken').innerHTML=words.map(function(w,n){return n===i?'<b>'+esc(w)+'</b>':'<span>'+esc(w)+'</span>'}).join(' '); if(voiceOn&&voiceReady&&window.speechSynthesis&&location.protocol!=='file:'||voiceOn&&voiceReady&&window.speechSynthesis){var u=new SpeechSynthesisUtterance(words[i]);u.rate=.85;u.onend=function(){i++;step()};u.onerror=function(){i++;setTimeout(step,150)};try{window.speechSynthesis.speak(u)}catch(e){i++;setTimeout(step,250)}}else{i++;setTimeout(step,320)}} step()}
-function showTip(e,word,forced){var t=forced||ph[String(word).toLowerCase()]||String(word).toUpperCase().split('').join('-');var tip=$('tip');var p=(e.touches&&e.touches[0])||e;tip.textContent=t;tip.classList.remove('hidden');tip.style.left=Math.min((p.clientX||20)+8,window.innerWidth-170)+'px';tip.style.top=Math.max((p.clientY||60)-50,10)+'px';clearTimeout(tip.timer);tip.timer=setTimeout(function(){tip.classList.add('hidden')},1000)}
-function addTip(el,word,forced){if(!el)return; el.addEventListener('mouseenter',function(e){showTip(e,word,forced)}); el.addEventListener('touchstart',function(e){showTip(e,word,forced)},{passive:true}); el.addEventListener('click',function(e){showTip(e,word,forced)})}
-function bind(root){var list=(root||document).querySelectorAll('.word');for(var i=0;i<list.length;i++)addTip(list[i],list[i].getAttribute('data-word'))}
-function renderSubjects(){var html='';subjects.forEach(function(s){html+='<article class="card" data-id="'+s.id+'"><div class="icon">'+s.icon+'</div><h2>'+s.title+'</h2><p>'+wrap(s.desc)+'</p></article>'});$('subjects').innerHTML=html;var cards=document.querySelectorAll('.card');for(var i=0;i<cards.length;i++){(function(card){var id=card.getAttribute('data-id'),sub=subjects.filter(function(s){return s.id===id})[0];card.addEventListener('click',function(){openSubject(id)});addTip(card,sub.title,sub.ph)})(cards[i])}bind($('subjects'))}
-function openSubject(id){$('subjects').classList.add('hidden');$('panel').classList.remove('hidden');var sub=subjects.filter(function(s){return s.id===id})[0];$('title').textContent=sub.title;if(id==='math')quiz('What is 2 + 3?',['4','5','6'],'5');if(id==='reading')quiz('Which word says flower?',['floor','flower','follow'],'flower');if(id==='science')science();if(id==='coding')coding()}
-function quiz(q,answers,correct){var html='<div class="question">'+wrap(q)+'</div><div class="answers">';answers.forEach(function(a){html+='<button class="answer">'+wrap(a)+'</button>'});html+='</div>';$('content').innerHTML=html;bind($('content'));say(q);var btns=document.querySelectorAll('.answer');for(var i=0;i<btns.length;i++){btns[i].addEventListener('click',function(){var text=this.textContent.trim();this.classList.add(text===correct?'correct':'wrong');say(text===correct?'Great job. The answer is '+correct:'Try again.')})}}
-function science(){var items=[['☀️','sun'],['🌙','moon'],['🌧️','rain'],['🌱','plant'],['🧲','magnet'],['🪨','rock']];var html='<p class="question">'+wrap('Tap a picture to hear the science word.')+'</p><div class="science">';items.forEach(function(it){html+='<div class="science-card" data-word="'+it[1]+'"><div class="pic">'+it[0]+'</div><div>'+it[1]+'</div></div>'});html+='</div>';$('content').innerHTML=html;bind($('content'));var cards=document.querySelectorAll('.science-card');for(var i=0;i<cards.length;i++){cards[i].addEventListener('click',function(e){showTip(e,this.getAttribute('data-word'),this.getAttribute('data-word'));say(this.getAttribute('data-word'))})}}
-function coding(){princess={x:36,y:70};queue=[];$('content').innerHTML='<div class="code-area"><div class="map"><div class="lake">🌊</div><div class="castle">🏰</div><div id="princess" class="princess">👸</div><div class="rock">🪨</div><div class="tree">🌳</div></div><div class="blocks"><p class="question">'+wrap('Choose code blocks.')+'</p><button class="code" data-m="right">Move Right</button> <button class="code" data-m="up">Move Up</button> <button id="clear" class="clear">Clear</button><div id="queue" class="queue">No blocks yet.</div><button id="run" class="run">Run Code</button></div></div>';bind($('content'));var btns=document.querySelectorAll('.code');for(var i=0;i<btns.length;i++){btns[i].addEventListener('click',function(){queue.push(this.getAttribute('data-m'));$('queue').textContent=queue.join(' → ')})}$('clear').addEventListener('click',function(){queue=[];$('queue').textContent='No blocks yet.'});$('run').addEventListener('click',runCode);addTip($('princess'),'princess');say('Move the princess to the castle.')}
-function runCode(){var el=$('princess'),i=0;function step(){if(i>=queue.length){say(princess.x>230&&princess.y>170?'You reached the castle.':'Add more blocks.');return}if(queue[i]==='right')princess.x+=70;if(queue[i]==='up')princess.y+=55;el.style.left=princess.x+'px';el.style.bottom=princess.y+'px';i++;setTimeout(step,450)}step()}
-$('voice').addEventListener('click',function(){voiceReady=true;voiceOn=!voiceOn?true:voiceOn;this.textContent='Voice: On';say('Voice is ready.')});
-$('back').addEventListener('click',function(){$('panel').classList.add('hidden');$('subjects').classList.remove('hidden');if(window.speechSynthesis)window.speechSynthesis.cancel();$('spoken').textContent='Tap a subject to start learning.'});
-if(location.protocol==='file:')$('icloudNotice').classList.remove('hidden');
-renderSubjects();
-})();
-</script>
+  <div class="sparkles" aria-hidden="true"></div>
+  <main class="app-shell">
+    <button class="menu-ribbon" type="button" aria-label="Menu"><span>☰</span><b>MENU</b></button>
 
-<script>
-if ('serviceWorker' in navigator && location.protocol !== 'file:') {
-  window.addEventListener('load', function () {
-    navigator.serviceWorker.register('./service-worker.js').catch(function () {});
-  });
-}
-</script>
+    <section class="hero-card">
+      <div class="brand-sign">
+        <div class="crown">♛</div>
+        <h1>Harper's</h1>
+        <h2>STEM LEARNING</h2>
+        <p>Learn • Play • Grow</p>
+      </div>
+      <div class="welcome-bubble">
+        <strong>Hi Harper! 👑</strong>
+        <span>Let's start your next adventure!</span>
+      </div>
+      <div class="princess-scene" aria-label="Princess castle scene">
+        <div class="castle">
+          <span class="tower t1"></span><span class="tower t2"></span><span class="tower t3"></span>
+          <span class="keep"></span><span class="gate"></span>
+        </div>
+        <div class="princess" role="img" aria-label="Princess">👸🏻</div>
+        <div class="wand">⭐</div>
+      </div>
+    </section>
+
+    <aside class="side-panel">
+      <article class="stat-card total-stars">
+        <h3>STAR COLLECTION</h3>
+        <div class="big-star-row"><span>⭐</span><b id="totalStars">0</b></div>
+        <p>Total Stars Earned</p>
+      </article>
+      <article class="stat-card progress-card">
+        <h3>PRINCESS PROGRESS</h3>
+        <div class="progress-row"><div class="mini-castle">🏰</div><div><b id="levelText">Level 1</b><span id="rankText">Princess Explorer</span></div></div>
+        <div class="bar"><i id="levelBar"></i></div><small id="levelPercent">0%</small>
+      </article>
+      <article class="stat-card goal-card">
+        <h3>TODAY'S GOAL</h3>
+        <div class="progress-row"><span class="goal-icon">⭐</span><div><b>Earn 20 more stars</b><span id="goalText">0 / 20</span></div></div>
+        <div class="bar"><i id="goalBar"></i></div>
+      </article>
+      <article class="stat-card streak-card"><span>🔥</span><b id="streakText">1 Day!</b><em>Amazing!</em></article>
+      <button class="achievement-btn" type="button" id="resetBtn">🏆 Reset Stars</button>
+    </aside>
+
+    <section class="subject-grid" aria-label="Learning subjects">
+      <article class="subject-card math" data-subject="Math" data-emoji="🔢"><h3>MATH</h3><p>Solve & Shine</p><div class="subject-art">123</div><button>Play</button><footer>⭐ <span data-stars="Math">0</span> / 100</footer></article>
+      <article class="subject-card reading" data-subject="Reading" data-emoji="📖"><h3>READING</h3><p>Read & Discover</p><div class="subject-art">📖</div><button>Play</button><footer>⭐ <span data-stars="Reading">0</span> / 100</footer></article>
+      <article class="subject-card science" data-subject="Science" data-emoji="🧪"><h3>SCIENCE</h3><p>Explore & Learn</p><div class="subject-art">🧪</div><button>Play</button><footer>⭐ <span data-stars="Science">0</span> / 100</footer></article>
+      <article class="subject-card coding" data-subject="Coding" data-emoji="💻"><h3>CODING</h3><p>Code with Princess</p><div class="subject-art">&lt;/&gt;</div><button>Play</button><footer>⭐ <span data-stars="Coding">0</span> / 100</footer></article>
+      <article class="subject-card speech" data-subject="Speech" data-emoji="🎤"><h3>SPEECH</h3><p>Speak & Shine</p><div class="subject-art">🎤</div><button>Play</button><footer>⭐ <span data-stars="Speech">0</span> / 100</footer></article>
+    </section>
+
+    <nav class="bottom-nav" aria-label="Game navigation">
+      <button class="active">🏠<span>HOME</span></button><button>🗺️<span>MAP</span></button><button>👸🏻<span>PRINCESS</span></button><button>🐱<span>PETS</span></button><button>🎁<span>TREASURES</span></button><button>🗓️<span>CALENDAR</span></button><button>🛡️<span>PARENTS</span></button>
+    </nav>
+
+    <aside class="adventure-card"><div>🏰</div><p><b>New Adventure Available!</b><br>Visit the Coding Kingdom and help Princess Codey solve the puzzle!</p><button id="quickPlay">➜</button></aside>
+  </main>
+
+  <dialog id="gameDialog">
+    <form method="dialog" class="game-box">
+      <button class="close" value="close" aria-label="Close">×</button>
+      <div class="game-title"><span id="gameEmoji">⭐</span><div><h2 id="gameSubject">Math</h2><p id="gameSubtitle">Answer to earn stars</p></div></div>
+      <div class="question-card"><p id="questionText"></p><div id="answerGrid" class="answer-grid"></div></div>
+      <p class="feedback" id="feedback">Pick an answer.</p>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
 </body>
 </html>
