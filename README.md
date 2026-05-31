@@ -1,4 +1,4 @@
-# Harper's STEM Learning v0.9.5
+# Harper's STEM Learning v0.9.6
 
 GitHub Pages-ready web app.
 
