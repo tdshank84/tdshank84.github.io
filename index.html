@@ -2,104 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#ff4fa3" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Harper STEM" />
+  <meta name="apple-mobile-web-app-title" content="Harper's STEM" />
+  <meta name="theme-color" content="#f63497" />
   <title>Harper's STEM Learning</title>
   <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div id="splashScreen" class="splash-screen" aria-label="Loading Harper's STEM Learning">
+  <div id="splash" class="splash" aria-label="Loading screen">
     <div class="splash-card">
-      <div class="splash-castle" aria-hidden="true">
-        <span class="splash-tower left"></span><span class="splash-keep"></span><span class="splash-tower right"></span><span class="splash-door"></span>
-      </div>
-      <div class="splash-crown">♛</div>
+      <div class="splash-crown">👑</div>
       <h1>Harper's STEM Learning</h1>
       <p>Built by Dad for his little princess</p>
-      <strong id="versionLabel">v0.9.1</strong>
-      <div class="splash-stars" aria-hidden="true">⭐ ✨ ⭐ ✨ ⭐</div>
+      <span>v0.9.2</span>
     </div>
   </div>
-  <div class="sparkles" aria-hidden="true"></div>
-  <div id="rotateNotice" class="rotate-notice" role="status" aria-live="polite">
-    <div class="rotate-card">
-      <div class="rotate-castle">🏰</div>
+
+  <div id="portraitLock" class="portrait-lock">
+    <div class="turn-card">
+      <div class="turn-icon">📱↔️</div>
       <h2>Turn iPad Sideways</h2>
-      <p>Harper's STEM Learning plays in landscape mode.</p>
-      <span>Built by Dad for his little princess</span>
+      <p>Harper's STEM Learning plays in landscape.</p>
     </div>
   </div>
-  <main class="app-shell">
-    <div class="version-pill">v0.9.1</div>
-    <button class="menu-ribbon" type="button" aria-label="Menu"><span>☰</span><b>MENU</b></button>
 
-    <section class="hero-card">
-      <div class="brand-sign">
-        <div class="crown">♛</div>
-        <h1>Harper's</h1>
-        <h2>STEM LEARNING</h2>
-        <p>Learn • Play • Grow</p>
-      </div>
-      <div class="welcome-bubble">
-        <strong>Hi Harper! 👑</strong>
-        <span>Let's start your next adventure!</span>
-      </div>
-      <div class="princess-scene" aria-label="Princess castle scene">
-        <div class="castle">
-          <span class="tower t1"></span><span class="tower t2"></span><span class="tower t3"></span>
-          <span class="keep"></span><span class="gate"></span>
-        </div>
-        <div class="princess" role="img" aria-label="Princess">👸🏻</div>
-        <div class="wand">⭐</div>
-      </div>
+  <main class="app-shell" id="appShell">
+    <section class="game-stage" id="gameStage" aria-label="Harper's STEM Learning game dashboard">
+      <img class="dashboard-bg" src="assets/dashboard.png" alt="Princess castle STEM dashboard" draggable="false" />
+
+      <button class="hotspot menu" data-nav="menu" aria-label="Menu"></button>
+      <button class="hotspot card math" data-subject="Math" aria-label="Play Math"></button>
+      <button class="hotspot card reading" data-subject="Reading" aria-label="Play Reading"></button>
+      <button class="hotspot card science" data-subject="Science" aria-label="Play Science"></button>
+      <button class="hotspot card coding" data-subject="Coding" aria-label="Play Coding"></button>
+      <button class="hotspot card speech" data-subject="Speech" aria-label="Play Speech"></button>
+
+      <button class="hotspot nav home active" data-nav="Home" aria-label="Home"></button>
+      <button class="hotspot nav map" data-nav="Map" aria-label="Map"></button>
+      <button class="hotspot nav princess" data-nav="Princess" aria-label="Princess"></button>
+      <button class="hotspot nav pets" data-nav="Pets" aria-label="Pets"></button>
+      <button class="hotspot nav treasures" data-nav="Treasures" aria-label="Treasures"></button>
+      <button class="hotspot nav calendar" data-nav="Calendar" aria-label="Calendar"></button>
+      <button class="hotspot nav parents" data-nav="Parents" aria-label="Parents"></button>
+      <button class="hotspot adventure" data-subject="Coding Adventure" aria-label="New coding adventure"></button>
+      <button class="hotspot achievements" data-nav="Achievements" aria-label="Achievements"></button>
+
+      <div class="live-stars" id="starCount" aria-live="polite">248</div>
+      <div class="live-goal" id="goalCount">8 / 20</div>
+      <div class="live-version">v0.9.2</div>
     </section>
-
-    <aside class="side-panel">
-      <article class="stat-card total-stars">
-        <h3>STAR COLLECTION</h3>
-        <div class="big-star-row"><span>⭐</span><b id="totalStars">0</b></div>
-        <p>Total Stars Earned</p>
-      </article>
-      <article class="stat-card progress-card">
-        <h3>PRINCESS PROGRESS</h3>
-        <div class="progress-row"><div class="mini-castle">🏰</div><div><b id="levelText">Level 1</b><span id="rankText">Princess Explorer</span></div></div>
-        <div class="bar"><i id="levelBar"></i></div><small id="levelPercent">0%</small>
-      </article>
-      <article class="stat-card goal-card">
-        <h3>TODAY'S GOAL</h3>
-        <div class="progress-row"><span class="goal-icon">⭐</span><div><b>Earn 20 more stars</b><span id="goalText">0 / 20</span></div></div>
-        <div class="bar"><i id="goalBar"></i></div>
-      </article>
-      <article class="stat-card streak-card"><span>🔥</span><b id="streakText">1 Day!</b><em>Amazing!</em></article>
-      <button class="achievement-btn" type="button" id="resetBtn">🏆 Reset Stars</button>
-    </aside>
-
-    <section class="subject-grid" aria-label="Learning subjects">
-      <article class="subject-card math" data-subject="Math" data-emoji="🔢"><h3>MATH</h3><p>Solve & Shine</p><div class="subject-art">123</div><button>Play</button><footer>⭐ <span data-stars="Math">0</span> / 100</footer></article>
-      <article class="subject-card reading" data-subject="Reading" data-emoji="📖"><h3>READING</h3><p>Read & Discover</p><div class="subject-art">📖</div><button>Play</button><footer>⭐ <span data-stars="Reading">0</span> / 100</footer></article>
-      <article class="subject-card science" data-subject="Science" data-emoji="🧪"><h3>SCIENCE</h3><p>Explore & Learn</p><div class="subject-art">🧪</div><button>Play</button><footer>⭐ <span data-stars="Science">0</span> / 100</footer></article>
-      <article class="subject-card coding" data-subject="Coding" data-emoji="💻"><h3>CODING</h3><p>Code with Princess</p><div class="subject-art">&lt;/&gt;</div><button>Play</button><footer>⭐ <span data-stars="Coding">0</span> / 100</footer></article>
-      <article class="subject-card speech" data-subject="Speech" data-emoji="🎤"><h3>SPEECH</h3><p>Speak & Shine</p><div class="subject-art">🎤</div><button>Play</button><footer>⭐ <span data-stars="Speech">0</span> / 100</footer></article>
-    </section>
-
-    <nav class="bottom-nav" aria-label="Game navigation">
-      <button class="active">🏠<span>HOME</span></button><button>🗺️<span>MAP</span></button><button>👸🏻<span>PRINCESS</span></button><button>🐱<span>PETS</span></button><button>🎁<span>TREASURES</span></button><button>🗓️<span>CALENDAR</span></button><button>🛡️<span>PARENTS</span></button>
-    </nav>
-
-    <aside class="adventure-card"><div>🏰</div><p><b>New Adventure Available!</b><br>Visit the Coding Kingdom and help Princess Codey solve the puzzle!</p><button id="quickPlay">➜</button></aside>
   </main>
 
-  <dialog id="gameDialog">
-    <form method="dialog" class="game-box">
+  <dialog id="gameModal" class="game-modal">
+    <form method="dialog" class="modal-card">
       <button class="close" value="close" aria-label="Close">×</button>
-      <div class="game-title"><span id="gameEmoji">⭐</span><div><h2 id="gameSubject">Math</h2><p id="gameSubtitle">Answer to earn stars</p></div></div>
-      <div class="question-card"><p id="questionText"></p><div id="answerGrid" class="answer-grid"></div></div>
-      <p class="feedback" id="feedback">Pick an answer.</p>
+      <div class="modal-icon" id="modalIcon">⭐</div>
+      <h2 id="modalTitle">Play</h2>
+      <p id="modalPrompt">Tap the right answer to earn stars.</p>
+      <div id="choices" class="choices"></div>
+      <p id="result" class="result"></p>
     </form>
   </dialog>
 
