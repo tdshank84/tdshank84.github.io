@@ -1,4 +1,4 @@
-const APP_VERSION = '0.9';
+const APP_VERSION = '0.9.1';
 const STORE_KEY = 'harpersStemPrincessStars.v2';
 const TODAY_KEY = 'harpersStemPrincessToday.v2';
 
@@ -155,3 +155,17 @@ window.addEventListener('load', () => {
     if (splash) splash.classList.add('hide');
   }, 3000);
 });
+
+
+async function tryLockLandscape() {
+  try {
+    if (screen.orientation && screen.orientation.lock) {
+      await screen.orientation.lock('landscape');
+    }
+  } catch (e) {
+    // iOS Safari may ignore programmatic orientation locks; manifest + portrait overlay handles it.
+  }
+}
+window.addEventListener('load', tryLockLandscape);
+document.addEventListener('click', tryLockLandscape, { once: true });
+document.addEventListener('touchstart', tryLockLandscape, { once: true });
