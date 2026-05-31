@@ -1,4 +1,4 @@
-const VERSION='0.9.4';
+const VERSION='0.9.5';
 const STAR_KEY='harpersStemStars';
 const GOAL_KEY='harpersStemGoalStars';
 const defaultStars=248;
@@ -25,7 +25,7 @@ function save(){localStorage.setItem(STAR_KEY,String(stars));localStorage.setIte
 function renderStars(){starCount.textContent=stars;goalCount.textContent=`${goalStars} / 20`}
 function earnStars(amount=1){stars+=amount;goalStars=Math.min(20,goalStars+amount);save();renderStars()}
 function speak(text){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.rate=.85;speechSynthesis.speak(u)}catch(e){}}
-function openGame(name){const game=games[name]||{icon:'⭐',prompt:`${name} is coming soon!`,answers:['Earn Star'],correct:'Earn Star'};modalIcon.textContent=game.icon;modalTitle.textContent=name;modalPrompt.textContent=game.prompt;result.textContent='';choices.innerHTML='';game.answers.forEach(answer=>{const btn=document.createElement('button');btn.type='button';btn.textContent=answer;btn.addEventListener('click',()=>{if(answer===game.correct){result.textContent='Great job, princess! +1 star ⭐';earnStars(1);speak('Great job! You earned a star.')}else{result.textContent='Good try. Try again!';speak('Good try. Try again.')}});choices.appendChild(btn)});modal.showModal();speak(`${name}. ${game.prompt}`)}
+function openGame(name){const game=games[name]||{icon:'⭐',prompt:`${name} is coming soon!`,answers:['Earn Star'],correct:'Earn Star'};modalIcon.textContent=game.icon;modalTitle.textContent=name;modalPrompt.textContent=game.prompt;result.textContent='';choices.innerHTML='';game.answers.forEach(answer=>{const btn=document.createElement('button');btn.type='button';btn.textContent=answer;btn.addEventListener('click',()=>{if(answer===game.correct){result.textContent='Great job, princess! +1 star ⭐';earnStars(1);if(name==='Science'){speak('The answer is Plant. A plant needs sunlight to grow.')}}else{result.textContent='Good try. Try again!'}});choices.appendChild(btn)});modal.showModal()}
 document.querySelectorAll('[data-subject]').forEach(el=>el.addEventListener('click',()=>openGame(el.dataset.subject)));
 document.querySelectorAll('[data-nav]').forEach(el=>el.addEventListener('click',()=>{const name=el.dataset.nav;if(name==='Achievements'){openGame('Achievements');return}if(name==='menu'){alert(`Harper's STEM Learning v${VERSION}\nStars are saved on this device.`);return}alert(`${name} area is ready for more princess adventures!`)}));
 window.addEventListener('load',()=>{renderStars();setTimeout(()=>document.getElementById('splash').classList.add('hidden'),3000);if('serviceWorker' in navigator){navigator.serviceWorker.register('./service-worker.js').catch(()=>{})}});
