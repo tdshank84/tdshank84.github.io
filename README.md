@@ -11,3 +11,7 @@ GitHub Pages-ready web app.
 
 ## Star Count
 Stars are saved in browser localStorage using `harpersStemPrincessStars.v2`, so progress remains after refreshes and app updates as long as the same browser/site URL is used.
+
+
+## Version
+Starts at v0.9. The loading splash screen displays for 3 seconds and says: Built by Dad for his little princess. Star counts remain saved in browser localStorage.
