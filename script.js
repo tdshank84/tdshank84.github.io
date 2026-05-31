@@ -1,10 +1,13 @@
-const VERSION = '0.9.7';
-const STAR_KEY = 'harpersStemStars';
-const GOAL_KEY = 'harpersStemGoalStars';
-const SUBJECT_KEY = 'harpersStemSubjectStars';
-const defaultStars = 248;
-const defaultGoalStars = 8;
-const defaultSubjectStars = { Math: 78, Reading: 45, Science: 38, Coding: 52, Speech: 35 };
+const VERSION = '0.9.8';
+const STAR_KEY = 'harpersStemStars_v098';
+const GOAL_KEY = 'harpersStemGoalStars_v098';
+const SUBJECT_KEY = 'harpersStemSubjectStars_v098';
+const defaultStars = 0;
+const defaultGoalStars = 0;
+const defaultSubjectStars = { Math: 0, Reading: 0, Science: 0, Coding: 0, Speech: 0 };
+
+// v0.9.8 starts the game fresh at zero stars. Old demo counters are ignored.
+['harpersStemStars','harpersStemGoalStars','harpersStemSubjectStars','harpersStemStars_v097','harpersStemGoalStars_v097','harpersStemSubjectStars_v097'].forEach(key => localStorage.removeItem(key));
 
 let stars = Number(localStorage.getItem(STAR_KEY) || defaultStars);
 let goalStars = Number(localStorage.getItem(GOAL_KEY) || defaultGoalStars);

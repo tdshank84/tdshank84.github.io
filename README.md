@@ -1,4 +1,4 @@
-# Harper's STEM Learning v0.9.7
+# Harper's STEM Learning v0.9.8
 
 GitHub Pages-ready web app.
 
@@ -14,4 +14,4 @@ GitHub Pages-ready web app.
 ## iPad install
 Open the GitHub Pages URL in Safari, then tap Share > Add to Home Screen.
 
-Stars are saved on each device using browser localStorage.
+v0.9.8 starts at 0 stars. Stars update during play and are saved on each device using browser localStorage.
